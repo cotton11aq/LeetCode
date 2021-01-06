@@ -1,17 +1,22 @@
 /**
- * @param {number[]} arr
- * @return {boolean}
+ * @param {string} allowed
+ * @param {string[]} words
+ * @return {number}
  */
-var uniqueOccurrences = function (arr) {
-  let obj = {};
 
-  for (let i = 0; i < arr.length; i++) {
-    if (obj[arr[i]] == undefined) {
-      obj[arr[i]] = 1;
-    } else {
-      obj[arr[i]]++;
+const countConsistentStrings = (allowed, words) => {
+  let result = [];
+
+  for (let i = 0; i < words.length; i++) {
+    const word = words[i];
+
+    for (let j = 0; j < word.length; j++) {
+      const char = word[j];
+
+      if (!allowed.includes(char)) break;
+      else if (j === word.length - 1) result.push(word);
     }
   }
 
-  return new Set(Object.values(obj)).size === Object.values(obj).length;
+  return result.length;
 };
