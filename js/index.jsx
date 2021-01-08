@@ -1,22 +1,16 @@
-/**
- * @param {string} allowed
- * @param {string[]} words
- * @return {number}
- */
+function main(input) {
+  const args = input.split("\n");
+  const a = parseInt(args[0], 10);
+  const b = parseInt(args[1], 10);
 
-const countConsistentStrings = (allowed, words) => {
-  let result = [];
+  // let sum = 0;
+  // for (let i = 0; i < 6; i++) {
+  //   if (b[i] == "Alice") {
+  //     sum += a[i];
+  //   }
+  // }
 
-  for (let i = 0; i < words.length; i++) {
-    const word = words[i];
+  console.log(a);
+}
 
-    for (let j = 0; j < word.length; j++) {
-      const char = word[j];
-
-      if (!allowed.includes(char)) break;
-      else if (j === word.length - 1) result.push(word);
-    }
-  }
-
-  return result.length;
-};
+main(require("fs").readFileSync("/dev/stdin", "utf8"));
