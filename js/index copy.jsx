@@ -1,25 +1,32 @@
 function main(input) {
-  input = input.trim().split("\n");
-  var n = parseInt(input[0], 10);
+  var args = input.split("\n").map((n) => n.split(" "));
+  var n = args[0][0];
+  var x = args[0][1];
+  var v = args.slice(1, n + 1).map((n) => parseInt(n[0], 10));
+  var p = args.slice(1, n + 1).map((n) => parseInt(n[1], 10));
+  
+  console.log(args);
+  console.log(n);
+  console.log(x);
+  console.log(v);
+  console.log(p);
 
-  var list = [[0, 0, 0]];
-  for (var i = 1; i <= n; i++) {
-    var t = Number(input[i].split(" ")[0]);
-    var x = Number(input[i].split(" ")[1]);
-    var y = Number(input[i].split(" ")[2]);
-    list.push([t, x, y]);
-  }
-  for (var i = 0; i < n; i++) {
-    dt = list[i + 1][0] - list[i][0];
-    dx = Math.abs(list[i + 1][1] - list[i][1]);
-    dy = Math.abs(list[i + 1][2] - list[i][2]);
-
-    dis = dx + dy;
-    if (dis > dt || dt % 2 != dis % 2) {
-      console.log("No");
-      return false;
+  var sum = 0;
+  var count = 0;
+  var bool = false;
+  for (let i = 0; i < n; i++) {
+    if (sum <= x) {
+      sum += v[i] * (p[i] / 100);
+      count++;
+    } else {
+      break;
     }
   }
-  console.log("Yes");
+  if (sum > x) {
+    console.log(count);
+  } else {
+    console.log(-1);
+  }
 }
+
 main(require("fs").readFileSync("/dev/stdin", "utf8"));
