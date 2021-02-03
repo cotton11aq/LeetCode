@@ -8,7 +8,6 @@ function main(input) {
     a = a.map((n) => (n /= 2));
     sum++;
   }
-
   console.log(sum);
 }
 
