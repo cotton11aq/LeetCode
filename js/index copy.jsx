@@ -7,9 +7,7 @@ function main(input) {
   var b = parseInt(args[2], 10);
 
   $(function () {
-    $("#q10").click(function () {
-      $(this).toggleClass("bbb");
-    });
+    $("<p>くくく</p>").insertAffter("div #q17");
   });
 }
 
