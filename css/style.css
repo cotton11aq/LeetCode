@@ -3,7 +3,6 @@ body {
   font-size: 2rem;
   display: flex;
   min-height: 100vh;
-
 }
 
 ul {
@@ -28,10 +27,51 @@ div {
   margin-top: auto;
 }
 
+.open,
+.close {
+  display: none;
+}
 
+input[type="checkbox"] {
+  position: absolute;
+  left: -250px;
+}
 
+@media screen and (max-width: 1000px) {
+  main {
+    width: 100%;
+    padding-top: 50px;
+  }
 
+  .open,
+  .close {
+    display: block;
+  }
 
+  .open {
+    position: absolute;
+
+  }
+
+  aside {
+    position: absolute;
+    left: -250px;
+    transition: all 0.2s;
+    height: 100vh;
+    background: #ffffff;
+  }
+
+  input[type="checkbox"]:checked ~ aside {
+    left: 0;
+  }
+
+  input[type="checkbox"]:checked ~ .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7) !important;
+  }
+}
 
 /* body {
   margin: 0;
