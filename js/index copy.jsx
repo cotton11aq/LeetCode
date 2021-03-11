@@ -16,6 +16,7 @@ function Main(input) {
         summin = Math.max(a[i], b[j]);
       }
       min = Math.min(min, summin);
+      
     }
   }
 
